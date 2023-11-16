@@ -1,23 +1,17 @@
-import { createBrowserRouter } from "react-router-dom";
-import Default from "./layouts/Default";
-import Blog from "./pages/Blog";
-import Home from "./pages/Home";
+import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Layouts } from "./layouts";
+import { Auth } from "./pages/auth";
 
 const routes = [
   {
     path: "/",
-    element: <Default />,
+    element: <Layouts.LandingPage />,
     children: [
-      {
-        index: true,
-        element: <h1>Hello World</h1>,
-      },
-      {
-        path: "home",
-        element: <Home />,
-      },
-      { path: "blog", element: <Blog /> },
+      { index: true, element: <Auth.Login /> },
+      { path: "log_in", element: <Auth.Login /> },
+      { path: "sign_up", element: <Auth.SignUp /> },
     ],
+    errorElement: <Navigate to="/" replace={true} />,
   },
 ];
 
