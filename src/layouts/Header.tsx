@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="container navbar bg-base-100">
       <div className="flex-1">
         <Link to="/" className="text-xl btn btn-ghost">
           Workaround
