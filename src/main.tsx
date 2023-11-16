@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const root = document.getElementById("root") as HTMLElement;
+
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <p>hello world</p>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
