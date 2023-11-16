@@ -7,7 +7,7 @@ const routes = [
     children: [
       {
         index: true,
-        element: <p className="text-xl font-bold">hello world</p>,
+        element: <h1>Hello World</h1>,
       },
     ],
   },
