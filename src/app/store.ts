@@ -4,10 +4,12 @@ import {
   MiddlewareAPI,
   configureStore,
 } from "@reduxjs/toolkit";
-import appReducer from "../features/app/appSlice";
+import authReducer from "../features/auth/authSlice";
 import counterReducer from "../features/counter/counterSlice";
+import api from "./api";
 
 const middlewares = [
+  api.middleware,
   (store: MiddlewareAPI) => (next: Dispatch) => (action: Action) => {
     console.log("Dispatching", JSON.stringify(action));
     console.log("Current State", JSON.stringify(store.getState()));
@@ -19,8 +21,9 @@ const middlewares = [
 
 export const store = configureStore({
   reducer: {
-    app: appReducer,
+    auth: authReducer,
     counter: counterReducer,
+    [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middlewares),

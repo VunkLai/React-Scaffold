@@ -1,26 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { decrement, increment } from "../features/counter/counterSlice";
+import { useLoginMutation } from "../features/auth/authApi";
 
 const Welcome = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+
+  const [login, { isLoading }] = useLoginMutation({});
 
   return (
-    <section className="container h-full border-2 border-red-500">
-      <div className="flex items-center gap-1">
+    <section className="min-h-screen hero">
+      <div>
+        <section>
+          <h1>Welcome, </h1>
+          <p></p>
+        </section>
         <button
-          className="btn btn-square "
-          onClick={() => dispatch(increment())}
+          className="w-full btn btn-square"
+          // onClick={() => dispatch(increment())}
+          onClick={() => login({})}
         >
-          ++
-        </button>
-        <h1>{count}</h1>
-        <button
-          className="btn btn-square "
-          onClick={() => dispatch(decrement())}
-        >
-          --
+          {isLoading && <p>loading</p>}
+          Log In
         </button>
       </div>
     </section>
