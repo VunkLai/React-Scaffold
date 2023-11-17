@@ -12,6 +12,13 @@ const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {},
+  extraReducers: {
+    "counter/increment": (state, action) => {
+      console.log("app extraReducers counter/increment", action);
+      state.isAuthenticated = !state.isAuthenticated;
+      return state;
+    },
+  },
 });
 
 export const {} = appSlice.actions;
