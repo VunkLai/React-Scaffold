@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter, redirect } from "react-router-dom";
 import { store } from "./app/store";
 import { Layouts } from "./layouts";
+import Welcome from "./pages/Welcome";
 import { Auth } from "./pages/auth";
 
 const requireAuth = () => {
@@ -13,7 +14,7 @@ const routes = [
   {
     path: "/",
     element: <Layouts.Default />,
-    children: [{ index: true, element: <h1>Welcome</h1> }],
+    children: [{ index: true, element: <Welcome /> }],
   },
   {
     path: "/:lang",
