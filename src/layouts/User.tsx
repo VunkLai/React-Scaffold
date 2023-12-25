@@ -128,7 +128,7 @@ const User = () => {
           height: "100vh",
         }}
       >
-        <div className="flex flex-col max-h-full overflow-hidden">
+        <div className="flex flex-col max-h-full">
           <Toolbar />
           <Outlet />
         </div>
