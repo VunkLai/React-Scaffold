@@ -2,6 +2,7 @@ import { Navigate, createBrowserRouter, redirect } from "react-router-dom";
 import { store } from "./app/store";
 import { Layouts } from "./layouts";
 import { Auth } from "./pages/auth";
+import { User } from "./pages/user";
 
 const requireAuth = () => {
   const { app } = store.getState();
@@ -14,6 +15,14 @@ const routes = [
     path: "/",
     element: <Layouts.Default />,
     children: [{ index: true, element: <h1>Welcome</h1> }],
+  },
+  {
+    path: "/user",
+    element: <Layouts.User />,
+    children: [
+      { index: true, element: <Navigate to="/user/profile" replace={true} /> },
+      { path: "profile", element: <User.Profile /> },
+    ],
   },
   {
     path: "/:lang",
