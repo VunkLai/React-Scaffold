@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .dev {
-  outline: 1px solid red;
+  @apply outline outline-sky-500;
 }
